@@ -238,7 +238,7 @@ const extractItemsInLoop = async (page) => {
   return images;
 };
 
-const getMapsData = async () => {
+export const getMapsData = async (url) => {
   const browser = await puppeteer.launch({
     headless: false,
     args: ["--disabled-setuid-sandbox", "--no-sandbox"],
@@ -257,8 +257,8 @@ const getMapsData = async () => {
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4882.194 Safari/537.36",
   });
 
-  const url = "https://maps.app.goo.gl/xShEdDRfdfrMnfGWA";
-  const url2 = "https://maps.app.goo.gl/MwDtPqhVUmvbnwaD6"
+  // const url = "https://maps.app.goo.gl/xShEdDRfdfrMnfGWA";
+  // const url2 = "https://maps.app.goo.gl/MwDtPqhVUmvbnwaD6"
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
   await setTimeout(10000); // Initial delay to ensure page is fully loaded
 
@@ -268,4 +268,4 @@ const getMapsData = async () => {
   await browser.close();
 };
 
-getMapsData();
+
